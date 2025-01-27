@@ -1,0 +1,46 @@
+{Object.keys(articles).map((source, index) => (
+            <div className=''>
+              <div key={index} style={{ marginBottom: '40px' }}>
+                {/* <h2>{source}</h2> */}
+
+                {articles[source].length === 0 ? (
+                  <p>No articles found for {source}.</p>
+                ) : (
+                  articles[source].map((article, index) => (
+                    <div className=''>
+
+                      <div key={index} style={{ marginBottom: '20px' }} className='grid grid-3'>
+                        <div className='bg-black text-white w-[400px] rounded-t-[25px]'>
+                          {/* image */}
+                          {article.image && <img src={article.image} alt="article" style={{ width: '400px', maxHeight: '300px' }} className='p-3 rounded-t-[25px]'/>}
+
+                          {/* title */}
+                          <h1 className='p-3 text-4xl w-[90%]'>{article.title}</h1> 
+                        </div>
+                        {/* <br></br> */}
+                        <div className='bg-white w-[400px] rounded-b-[25px] p-3'>
+                          {/* Summarized Content */}
+                          <p className='p-3'>
+                            <b className='text-3xl'>Summary :</b>
+                            <br></br>
+                            <p className='text-[17px] mx-[70px]'>{article.summary}</p>  
+                          </p>
+
+                          {/* publised Date  */}
+                          <p className='p-3'><strong>Published:</strong> {article.published}</p>
+
+                          {/* Read more link */}
+                          <a className='p-3' href={article.link} target="_blank" rel="noopener noreferrer">
+                            Read More
+                          </a>
+                        </div>
+                      </div>
+                      {/* <div>================================================</div> */}
+                    </div>
+                  ))
+                )}
+              
+              </div>
+              
+            </div>
+          ))}
